@@ -27,3 +27,8 @@ Windows: virtualenv venv , activate your virtual environment.
 3. `npm run build`
 4. `npm run watch`
 5. `python manage.py runserver`
+
+### Create user 
+```
+python manage.py createsuperuser
+```
