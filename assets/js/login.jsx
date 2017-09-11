@@ -3,7 +3,7 @@ import Auth from './auth.js'
 import PropTypes from 'prop-types';
 import FormGroup from './FormGroup'
 import { withRouter } from 'react-router'
-export default class Login extends Component {
+class Login extends Component {
 
   constructor(props) {
     super(props)
@@ -53,7 +53,6 @@ export default class Login extends Component {
     var pass = this.state.password
     Auth.login(username, pass, (loggedIn) => {
       if (loggedIn) {
-        // this.context.router.replace('/app/')
         this.props.router.push('/app/')
       } else {
         this.setState({ login_error: true })
@@ -102,13 +101,9 @@ export default class Login extends Component {
   }
 }
 
-Login.propTypes = {
-  router: PropTypes.element.isRequired
-}
-
 Login.defaultProps = {
   login_error: false,
 }
 
-
+export default withRouter(Login)
 
