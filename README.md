@@ -6,7 +6,6 @@ Token-based Authentication with React and DRF
 git clone https://github.com/bluearcontech/Django-React-Start.git your_app
 cd your_app
 create virtual environment
-```
 Windows:
 virtualenv venv
 cd Scripts
@@ -14,6 +13,8 @@ activate
 
 Mac: virtualenv venv
 source bin/activate
+```
+
 
 Create virtualenv for this project
 Windows: virtualenv venv , activate your virtual environment.
