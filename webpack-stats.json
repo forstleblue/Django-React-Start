@@ -1,1 +1,1 @@
-{"status":"done","chunks":{"main":[{"name":"main.js","path":"G:\\Web Development\\Django\\Django-React\\django-react-auth-es6\\assets\\bundles\\main.js"}]}}
+{"status":"done","chunks":{"main":[{"name":"main.js","publicPath":"http://localhost:3000/assets/bundles/main.js","path":"G:\\Web Development\\Django\\Django-React\\django-react-auth-es6\\assets\\bundles\\main.js"}]},"publicPath":"http://localhost:3000/assets/bundles/"}

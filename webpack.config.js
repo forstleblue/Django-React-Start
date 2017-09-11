@@ -6,6 +6,7 @@ module.exports = {
 	context: __dirname,
 
 	entry: [
+		'react-hot-loader/patch',
 		'webpack-dev-server/client?http://localhost:3000',
       	'webpack/hot/only-dev-server',
 		'./assets/js/index'
@@ -19,6 +20,7 @@ module.exports = {
 
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
+		new BundleTracker({filename: './webpack-stats.json'}),
     	new webpack.NoEmitOnErrorsPlugin(), // don't reload if there is an error
 		new webpack.ProvidePlugin({
 			$: 'jquery',
