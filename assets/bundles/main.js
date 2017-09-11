@@ -59,7 +59,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "30b463325ac46219a8bc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6e8b7b12a888727ceabe"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -48197,7 +48197,7 @@ var App = function (_Component) {
 						this.state.user.username ? _react2.default.createElement(
 							'h1',
 							null,
-							'You are now logged in, ABBA123',
+							'You are now logged in, 123',
 							this.state.user.username
 						) : _react2.default.createElement(
 							'h1',

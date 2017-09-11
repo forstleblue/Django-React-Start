@@ -1,6 +1,6 @@
 *.swp
 *.pyc
 node_modules/
-
+assets/bundles/main.js
 # python virtual environment
 env/
