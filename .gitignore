@@ -2,5 +2,6 @@
 *.pyc
 node_modules/
 assets/bundles/main.js
+webpack-stats.json
 # python virtual environment
 env/
