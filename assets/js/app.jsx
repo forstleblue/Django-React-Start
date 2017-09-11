@@ -46,7 +46,7 @@ export default class App extends Component {
 				<div className="row">
 				<div className="form-group">
 					{this.state.user.username ?
-						<h1>You are now logged in, BBB{this.state.user.username}</h1>
+						<h1>You are now logged in, {this.state.user.username}</h1>
 						:
 						<h1>You are now logged in </h1>
 					}
