@@ -20,7 +20,7 @@ export default class App extends Component {
 
 	logoutHandler() {
 		Auth.logout()
-		this.props.router.push('/login/')
+		this.props.router.push('/app/login/')
 	}
 
 	changePassword() {

@@ -10,17 +10,17 @@ import HomeView from '../HomeView'
 function requireAuth(nextState, replace) {
 	if (!loggedIn()) {
 		replace({
-			pathname: '/login',
-			state: { nextPathname: '/' }
+			pathname: '/app/login',
+			state: { nextPathname: '/app/' }
 		})
 	}
 }
 
 const routes =
     <Router history={browserHistory}>
-        <Route path='/' component={App} onEnter={requireAuth} />
-        <Route path='/login' component={Login} />
-		<Route path='/profile' component={ProfileContainer} onEnter={requireAuth} />
+        <Route path='/app' component={App} onEnter={requireAuth} />
+        <Route path='/app/login' component={Login} />
+		<Route path='/app/profile' component={ProfileContainer} onEnter={requireAuth} />
     </Router>
 
 export default routes

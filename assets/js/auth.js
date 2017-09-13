@@ -26,7 +26,7 @@ module.exports = {
 		console.log("post method")
 		$.ajax({
 			type: 'POST',
-			url: 'api/obtain-auth-token/',
+			url: '/api/obtain-auth-token/',
 			data: {
 				username: username,
 				password: pass
