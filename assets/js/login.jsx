@@ -3,6 +3,7 @@ import Auth from './auth.js'
 import PropTypes from 'prop-types';
 import FormGroup from './FormGroup'
 import { withRouter } from 'react-router'
+import css from './css/style.css'
 class Login extends Component {
 
   constructor(props) {
@@ -65,38 +66,41 @@ class Login extends Component {
     const isPasswordValid = this.validatePassword(this.state.password)
     const isSubmitDisabled = isUsernameValid !== true || isPasswordValid !== true
     return (
-      <div className="row">
-        <div className="col-sm-6 col-sm-offset-3">
-          <div className="panel panel-default">
-            <div className="panel-heading">
-              <h3 className="panel-title">Login</h3>
-            </div>
-            <div className="panel-body">
-              <form className="form-horizontal" onSubmit={this.handleSubmit}>
-                <FormGroup
-                  type="text"
-                  id="username"
-                  label="Username"
-                  validate={this.validateUsername}
-                  onChange={this.handleChangeUsername}
-                />
-                <FormGroup
-                  type="password"
-                  id="password"
-                  label="Password"
-                  validate={this.validatePassword}
-                  onChange={this.handleChangePassword}
-                />
-                <div className="form-group no-margin-bottom">
-                  <div className="col-sm-9 col-sm-offset-3">
-                    <button type="submit" className="btn btn-default" disabled={isSubmitDisabled}>Login</button>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-6 col-sm-offset-3">
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <h3 className="panel-title">Login</h3>
+              </div>
+              <div className="panel-body">
+                <form className="form-horizontal" onSubmit={this.handleSubmit}>
+                  <FormGroup
+                    type="text"
+                    id="username"
+                    label="Username"
+                    validate={this.validateUsername}
+                    onChange={this.handleChangeUsername}
+                  />
+                  <FormGroup
+                    type="password"
+                    id="password"
+                    label="Password"
+                    validate={this.validatePassword}
+                    onChange={this.handleChangePassword}
+                  />
+                  <div className="form-group no-margin-bottom">
+                    <div className="col-sm-9 col-sm-offset-3">
+                      <button type="submit" className="btn btn-default" disabled={isSubmitDisabled}>Login</button>
+                    </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
     )
   }
 }

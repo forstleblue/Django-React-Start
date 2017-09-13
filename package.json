@@ -41,6 +41,7 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "style-loader": "^0.18.2",
     "webpack": "latest",
     "webpack-bundle-tracker": "0.0.93",
     "webpack-dev-server": "^2.5.0",
