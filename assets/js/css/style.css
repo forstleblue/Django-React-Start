@@ -5,3 +5,7 @@
 .actions button {
     margin-left: 20px;
 }
+
+.reactLogo {
+  max-width: 128px;
+}

@@ -54,7 +54,7 @@ class Login extends Component {
     var pass = this.state.password
     Auth.login(username, pass, (loggedIn) => {
       if (loggedIn) {
-        this.props.router.push('/app/')
+        this.props.router.push('/')
       } else {
         this.setState({ login_error: true })
       }
