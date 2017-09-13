@@ -13,18 +13,18 @@ const store = configureStore(initialState, browserHistory);
 // const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
-	<AppContainer store={store}>
+	<Provider store={store}>
 		{routes}
-	</AppContainer>,
+	</Provider>,
 	document.getElementById('app')
 )
 
 if (module.hot) {
 	module.hot.accept('./reducers', () => {
 		ReactDOM.render(
-			<AppContainer store={store}>
+			<Provider store={store}>
 				{routes}
-			</AppContainer>,
+			</Provider>,
 			document.getElementById('app')
 		)
 	})

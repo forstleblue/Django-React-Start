@@ -1,3 +1,7 @@
 .container {
     padding-top: 100px;
 }
+
+.actions button {
+    margin-left: 20px;
+}

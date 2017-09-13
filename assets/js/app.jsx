@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Auth from './auth'
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router'
-
+import { withRouter } from 'react-router';
+import css from './css/style.css';
 export default class App extends Component {
 
 	constructor(props) {
@@ -21,6 +21,10 @@ export default class App extends Component {
 	logoutHandler() {
 		Auth.logout()
 		this.props.router.push('/app/login/')
+	}
+
+	changePassword() {
+
 	}
 
 	loadUserData() {
@@ -50,7 +54,10 @@ export default class App extends Component {
 						:
 						<h1>You are now logged in </h1>
 					}
-					<button className="btn btn-default" onClick={this.logoutHandler}>Log out</button>
+					<div className="actions">
+						<button className="btn btn-default" onClick={this.logoutHandler}>Log out</button>
+						<button className="btn btn-default" onClick={this.changePassword}>Change Password</button>
+					</div>
 				</div>
 			</div>
 			</div>
