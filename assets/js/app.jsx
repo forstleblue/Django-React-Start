@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Auth from './auth'
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
+import {Link} from 'react-router'
 import css from './css/style.css';
 export default class App extends Component {
 
@@ -56,7 +57,7 @@ export default class App extends Component {
 					}
 					<div className="actions">
 						<button className="btn btn-default" onClick={this.logoutHandler}>Log out</button>
-						<button className="btn btn-default" onClick={this.changePassword}>Change Password</button>
+						<Link to="app/profile" className="btn btn-default">Change Password</Link >
 					</div>
 				</div>
 			</div>
