@@ -1,7 +1,6 @@
 import Router from 'react-router/lib/Router'
 import Route from 'react-router/lib/Route'
 import IndexRoute from 'react-router/lib/IndexRoute'
-import App from '../app.jsx'
 import Login from './Login'
 import React from 'react'
 import browserHistory from 'react-router/lib/browserHistory'
