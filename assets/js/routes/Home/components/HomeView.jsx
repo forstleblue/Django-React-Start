@@ -1,6 +1,6 @@
 import React from 'react'
-import reactDjangoLogo from './public/react-django.png'
-import Style from './css/style.css'
+import reactDjangoLogo from '../../../public/react-django.png'
+import Style from '../../../css/style.css'
 
 export default () => (
   <div>

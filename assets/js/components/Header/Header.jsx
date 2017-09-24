@@ -2,9 +2,8 @@ import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import IndexLink from 'react-router/lib/IndexLink'
 import Link from 'react-router/lib/Link'
-import { logoutUserRequest } from './actions/user'
-import Auth from './auth'
-import css from './css/style.css';
+import Auth from '../../auth'
+
 
 export default class Header extends Component {
 
@@ -24,6 +23,11 @@ export default class Header extends Component {
 	}
 
 	logoutHandler() {
+    this.setState({
+      user: {
+        username: ''
+      }
+    })
 		Auth.logout()
 	}
 

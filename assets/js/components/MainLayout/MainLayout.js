@@ -1,6 +1,6 @@
 import React from 'react'
 import { Component, PropTypes } from 'react'
-import Header from './Header'
+import Header from '../Header'
 
 export default class MainLayout extends Component {
 	constructor(props) {
@@ -15,19 +15,19 @@ export default class MainLayout extends Component {
 		this.setState({
 			username: username
 		})
-        this.refs.header.setState({
-            user: {username: username}
-        })
+		this.refs.header.setState({
+			user: { username: username }
+		})
 	}
 
 	render() {
 		const childrenWithProps = React.Children.map(this.props.children,
-		(child) => React.cloneElement(child, {
-			setUser: this.setUser
-		}));
+			(child) => React.cloneElement(child, {
+				setUser: this.setUser
+			}));
 		return (
 			<div className="container">
-				<Header ref="header"/>
+				<Header ref="header" />
 				{childrenWithProps}
 			</div>
 		)

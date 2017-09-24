@@ -7,9 +7,8 @@ import React from 'react'
 import browserHistory from 'react-router/lib/browserHistory'
 import { loggedIn } from '../auth.js'
 import ResetPasswordContainer from '../ResetPasswordContainer'
-import HomeView from '../HomeView'
-import Header from '../Header'
-import MainLayout from '../MainLayout'
+import Home from './Home'
+import MainLayout from '../components/MainLayout'
 function requireAuth(nextState, replace) {
 	if (!loggedIn()) {
 		replace({
@@ -20,12 +19,12 @@ function requireAuth(nextState, replace) {
 }
 
 const routes =
-    <Router history={browserHistory}>
+	<Router history={browserHistory}>
 		<Route path="/app" component={MainLayout} >
-			<IndexRoute component={HomeView} />
+			<IndexRoute component={Home} />
 			<Route path='login' component={Login} />
 			<Route path='/reset-password' component={ResetPasswordContainer} onEnter={requireAuth} />
 		</Route>
-    </Router>
+	</Router>
 
 export default routes
