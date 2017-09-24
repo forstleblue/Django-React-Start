@@ -15,6 +15,9 @@ export default class MainLayout extends Component {
 		this.setState({
 			username: username
 		})
+        this.refs.header.setState({
+            user: {username: username}
+        })
 	}
 
 	render() {
@@ -24,7 +27,7 @@ export default class MainLayout extends Component {
 		}));
 		return (
 			<div className="container">
-				<Header username={this.state.username}/>
+				<Header ref="header"/>
 				{childrenWithProps}
 			</div>
 		)
