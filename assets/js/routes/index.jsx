@@ -23,7 +23,7 @@ const routes =
 		<Route path="/app" component={MainLayout} >
 			<IndexRoute component={Home} />
 			<Route path='login' component={Login} />
-			<Route path='users' component={UserList} />
+			<Route path='users' component={UserList} onEnter={requireAuth} />
 			<Route path='/reset-password' component={ResetPasswordContainer} onEnter={requireAuth} />
 		</Route>
 	</Router>

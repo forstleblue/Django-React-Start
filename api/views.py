@@ -11,6 +11,11 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = (permissions.IsAuthenticated,)
 
+    def list(self, request):
+        queryset = User.objects.all()
+        serializer = UserSerializer(queryset, many=True)
+        return response.Response(serializer.data)
+
     def retrieve(self, request, pk=None):
         if pk == 'i':
             return response.Response(UserSerializer(request.user,
