@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import LoginView from '../components/LoginView'
-import Auth from '../../../auth'
+import {login} from '../../../auth'
 class LoginContainer extends Component {
 	constructor(props) {
 		super(props)
@@ -9,7 +9,7 @@ class LoginContainer extends Component {
 	}
 
 	handleSubmit(username, password) {
-		Auth.login(username, password, (loggedIn) => {
+		login(username, password, (loggedIn) => {
 			if (loggedIn) {
 				this.props.setUser(username)
 				this.props.router.push('/app/')

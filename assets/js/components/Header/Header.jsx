@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import IndexLink from 'react-router/lib/IndexLink'
 import Link from 'react-router/lib/Link'
-import Auth from '../../auth'
+import {logout} from '../../auth'
 
 
 export default class Header extends Component {
@@ -28,7 +28,7 @@ export default class Header extends Component {
         username: ''
       }
     })
-		Auth.logout()
+		logout()
 	}
 
 	changePassword() {
