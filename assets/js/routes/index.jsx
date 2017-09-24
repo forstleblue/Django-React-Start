@@ -24,7 +24,7 @@ const routes =
 			<IndexRoute component={Home} />
 			<Route path='login' component={Login} />
 			<Route path='users' component={UserList} onEnter={requireAuth} />
-			<Route path='/reset-password' component={ResetPasswordContainer} onEnter={requireAuth} />
+			<Route path='reset-password' component={ResetPasswordContainer} onEnter={requireAuth} />
 		</Route>
 	</Router>
 

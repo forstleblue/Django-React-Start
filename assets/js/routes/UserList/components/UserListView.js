@@ -49,7 +49,7 @@ export default class UserListView extends Component {
 				<h1>User List Table</h1>
 				{this.state.users ?
 					<BootstrapTable data={ this.state.users }>
-						<TableHeaderColumn dataField='any' isKey dataFormat={indexN}>User ID</TableHeaderColumn>
+						<TableHeaderColumn dataField='id' isKey dataFormat={indexN}>User ID</TableHeaderColumn>
 						<TableHeaderColumn dataField='username'>User Name</TableHeaderColumn>
 					</BootstrapTable>
 					:

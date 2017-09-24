@@ -76,6 +76,12 @@ export default class Header extends Component {
                   <Link to="/app/users">Users</Link>
                 </li>
               }
+              {
+                this.state.user &&
+                <li>
+                  <Link to="/app/reset-password">Reset Password</Link>
+                </li>
+              }
             </ul>
             {
               this.state.user.username ? (
