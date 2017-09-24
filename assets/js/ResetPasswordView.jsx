@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import FormGroup from './FormGroup'
 
-class ProfileView extends Component {
+class ResetPasswordView extends Component {
 
   constructor(props) {
     super(props)
@@ -91,7 +91,7 @@ class ProfileView extends Component {
   }
 }
 
-ProfileView.propTypes = {
+ResetPasswordView.propTypes = {
     onSubmit: PropTypes.func.isRequired,
 }
-export default ProfileView
+export default ResetPasswordView
