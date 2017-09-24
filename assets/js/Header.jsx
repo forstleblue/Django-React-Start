@@ -25,7 +25,6 @@ export default class Header extends Component {
 
 	logoutHandler() {
 		Auth.logout()
-		this.props.router.push('/app/login/')
 	}
 
 	changePassword() {
