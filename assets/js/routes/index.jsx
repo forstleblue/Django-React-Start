@@ -9,6 +9,7 @@ import { loggedIn } from '../auth.js'
 import ResetPasswordContainer from '../ResetPasswordContainer'
 import Home from './Home'
 import MainLayout from '../components/MainLayout'
+import UserList from './UserList'
 function requireAuth(nextState, replace) {
 	if (!loggedIn()) {
 		replace({
@@ -23,6 +24,7 @@ const routes =
 		<Route path="/app" component={MainLayout} >
 			<IndexRoute component={Home} />
 			<Route path='login' component={Login} />
+			<Route path='users' component={UserList} />
 			<Route path='/reset-password' component={ResetPasswordContainer} onEnter={requireAuth} />
 		</Route>
 	</Router>
