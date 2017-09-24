@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { changePasswordRequest } from './actions/user'
-import ProfileView from './ProfileView'
+import ResetPasswordView from './ResetPasswordView'
 import Auth from './auth'
-class ProfileContainer extends Component {
+class ResetPasswordContainer extends Component {
 
   constructor(props) {
     super(props)
@@ -41,15 +41,15 @@ class ProfileContainer extends Component {
 
   render() {
     return (
-      <ProfileView
+      <ResetPasswordView
         onSubmit={this.handlSubmit}
       />
     )
   }
 }
 
-ProfileContainer.propTypes = {
+ResetPasswordContainer.propTypes = {
     changePasswordRequest: PropTypes.func.isRequired,
 }
 
-export default connect(undefined, { changePasswordRequest })(ProfileContainer)
+export default connect(undefined, { changePasswordRequest })(ResetPasswordContainer)
