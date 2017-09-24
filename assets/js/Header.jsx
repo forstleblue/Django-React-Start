@@ -68,7 +68,7 @@ export default class Header extends Component {
               {
                 this.state.user &&
                 <li>
-                  <Link to="/users">Users</Link>
+                  <Link to="/app/users">Users</Link>
                 </li>
               }
             </ul>
@@ -81,7 +81,7 @@ export default class Header extends Component {
                     </Link>
                   </li>
                   <li>
-                    <button className="btn btn-default" onClick={this.logoutHandler}>Logout</button>
+                    <Link to ="/app/login" onClick={this.logoutHandler}>Logout</Link>
                   </li>
                 </ul>
               ) : (

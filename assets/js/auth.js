@@ -44,7 +44,6 @@ module.exports = {
 	},
 
 	getToken: function (username, pass, cb) {
-		console.log("post method")
 		$.ajax({
 			type: 'POST',
 			url: '/api/obtain-auth-token/',
