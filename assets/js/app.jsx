@@ -50,7 +50,7 @@ export default class App extends Component {
 			<div className="container">
 				<div className="row">
 					<div>
-						<h1>Welcome to MERN Start!</h1>
+						<h1>Welcome to Dajngo-React Start!</h1>
 					</div>
 					<div className="form-group">
 						{this.state.user.username ?

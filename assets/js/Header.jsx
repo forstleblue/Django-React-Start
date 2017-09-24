@@ -11,7 +11,9 @@ export default class Header extends Component {
   constructor(props) {
 		super(props)
 		this.state = {
-			user: {}
+			user: {
+        username: this.props.username
+      }
 		}
 		this.loadUserData = this.loadUserData.bind(this)
 		this.logoutHandler = this.logoutHandler.bind(this)

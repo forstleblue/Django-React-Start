@@ -54,6 +54,7 @@ class Login extends Component {
     var pass = this.state.password
     Auth.login(username, pass, (loggedIn) => {
       if (loggedIn) {
+        this.props.setUser(username)
         this.props.router.push('/app/')
       } else {
         this.setState({ login_error: true })
@@ -107,6 +108,10 @@ class Login extends Component {
 
 Login.defaultProps = {
   login_error: false,
+}
+
+Login.propTypes = {
+  setUser: PropTypes.func.isRequired
 }
 
 export default withRouter(Login)
