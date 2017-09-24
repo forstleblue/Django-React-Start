@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Auth from './auth'
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
+import {Link} from 'react-router'
 import css from './css/style.css';
 export default class App extends Component {
 
@@ -48,17 +49,20 @@ export default class App extends Component {
 		return (
 			<div className="container">
 				<div className="row">
-				<div className="form-group">
-					{this.state.user.username ?
-						<h1>You are now logged in, {this.state.user.username}</h1>
-						:
-						<h1>You are now logged in </h1>
-					}
-					<div className="actions">
-						<button className="btn btn-default" onClick={this.logoutHandler}>Log out</button>
-						<button className="btn btn-default" onClick={this.changePassword}>Change Password</button>
+					<div>
+						<h1>Welcome to MERN Start!</h1>
 					</div>
-				</div>
+					<div className="form-group">
+						{this.state.user.username ?
+							<h1>You are now logged in, {this.state.user.username}</h1>
+							:
+							<h1>You are now logged in </h1>
+						}
+						<div className="actions">
+							<button className="btn btn-default" onClick={this.logoutHandler}>Log out</button>
+							<Link to="reset-password" className="btn btn-default">Change Password</Link >
+						</div>
+					</div>
 			</div>
 			</div>
 

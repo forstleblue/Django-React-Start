@@ -22,6 +22,27 @@ module.exports = {
 		return !!localStorage.token
 	},
 
+	changepass: function(username, newpass, cb) {
+		$.ajax({
+			type: 'POST',
+			url: '/api/users/i/change-password/',
+			data: {
+				username: username,
+				newpass: newpass
+			},
+			datatype: 'json',
+			headers: {
+				'Authorization': 'Token ' + localStorage.token
+			},
+			success: function(res) {
+				console.log("change password success")
+			},
+			error: (xhr, status, err) => {
+				console.log("change password error")
+			}
+		})
+	},
+
 	getToken: function (username, pass, cb) {
 		console.log("post method")
 		$.ajax({
