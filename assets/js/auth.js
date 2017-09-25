@@ -58,7 +58,7 @@ export const loggedIn = () => {
 	return !!localStorage.token
 }
 
-export const changepass = (username, newpass, cb) => {
+export const changePassword = (username, newpass, cb) => {
 	$.ajax({
 		type: 'POST',
 		url: '/api/users/i/change-password/',

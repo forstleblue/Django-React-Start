@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { changePasswordRequest } from '../../../actions/user'
 import ResetPasswordView from '../components/ResetPasswordView'
-import {changepass} from '../../../auth'
+import {changePassword} from '../../../auth'
 class ResetPasswordContainer extends Component {
 
   constructor(props) {
@@ -19,7 +19,7 @@ class ResetPasswordContainer extends Component {
 	}
 
   handlSubmit(password) {
-    changepass(this.state.user.username, password)
+    changePassword(this.state.user.username, password)
   }
 
   loadUserData() {

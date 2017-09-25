@@ -31,10 +31,6 @@ export default class Header extends Component {
 		logout()
 	}
 
-	changePassword() {
-
-	}
-
 	loadUserData() {
 		$.ajax({
 			method: 'GET',
