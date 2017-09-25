@@ -67,13 +67,13 @@ export default class Header extends Component {
                 <Link to="/features">Features</Link>
               </li>
               {
-                this.state.user &&
+                this.state.user.username &&
                 <li>
                   <Link to="/app/users">Users</Link>
                 </li>
               }
               {
-                this.state.user &&
+                this.state.user.username &&
                 <li>
                   <Link to="/app/reset-password">Reset Password</Link>
                 </li>

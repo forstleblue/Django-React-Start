@@ -1,7 +1,7 @@
 import React from 'react'
 import { Component, PropTypes } from 'react'
 import Header from '../Header'
-
+import MessageBox from '../MessageBox'
 export default class MainLayout extends Component {
 	constructor(props) {
 		super(props)
@@ -28,6 +28,7 @@ export default class MainLayout extends Component {
 		return (
 			<div className="container">
 				<Header ref="header" />
+				<MessageBox />
 				{childrenWithProps}
 			</div>
 		)
