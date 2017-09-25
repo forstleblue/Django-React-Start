@@ -5,7 +5,7 @@ import Login from './Login'
 import React from 'react'
 import browserHistory from 'react-router/lib/browserHistory'
 import { loggedIn } from '../auth.js'
-import ResetPasswordContainer from '../ResetPasswordContainer'
+import ResetPassword from './ResetPassword'
 import Home from './Home'
 import MainLayout from '../components/MainLayout'
 import UserList from './UserList'
@@ -24,7 +24,7 @@ const routes =
 			<IndexRoute component={Home} />
 			<Route path='login' component={Login} />
 			<Route path='users' component={UserList} onEnter={requireAuth} />
-			<Route path='reset-password' component={ResetPasswordContainer} onEnter={requireAuth} />
+			<Route path='reset-password' component={ResetPassword} onEnter={requireAuth} />
 		</Route>
 	</Router>
 

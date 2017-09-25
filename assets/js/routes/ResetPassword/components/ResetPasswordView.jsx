@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import FormGroup from './components/FormGroup'
+import FormGroup from '../../../components/FormGroup'
 
 class ResetPasswordView extends Component {
 
