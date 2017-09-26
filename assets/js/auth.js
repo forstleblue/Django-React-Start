@@ -1,6 +1,9 @@
 import * as types from './actions/types'
 import { showMessage } from './actions/messages'
-import { store } from './store'
+
+import createStore from './store'
+const initialState = {};
+const store = createStore(initialState);
 
 const getToken = (username, pass, cb) => {
 	$.ajax({
@@ -34,12 +37,6 @@ export const login = (username, pass, cb) => {
 			localStorage.token = res.token
 			if (cb) {
 				cb(true);
-				// store.dispatch({
-				// 	type: types.LOGIN_USER,
-				// 	user: {
-				// 		username,
-				// 	},
-				// })
 			}
 		} else {
 			if (cb) cb(false)
@@ -49,9 +46,9 @@ export const login = (username, pass, cb) => {
 
 export const logout = () => {
 	delete localStorage.token
-	// store.dispatch({
-	// 	type: types.LOGOUT_USER,
-	// })
+	store.dispatch({
+		type: types.LOGOUT_USER,
+	})
 }
 
 export const loggedIn = () => {

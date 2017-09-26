@@ -26,9 +26,9 @@ class MessageBox extends Component {
 }
 
 const mapStateToProps = state => {
- return {
-	messages: state.messages,
- }
+	return {
+		messages: state.messages
+	}
 }
 
 MessageBox.propTypes = {

@@ -4,30 +4,26 @@ import IndexLink from 'react-router/lib/IndexLink'
 import Link from 'react-router/lib/Link'
 import {logout} from '../../auth'
 
-
-export default class Header extends Component {
+class Header extends Component {
 
   constructor(props) {
 		super(props)
-		this.state = {
-			user: {
-        username: this.props.username
-      }
-		}
-		this.loadUserData = this.loadUserData.bind(this)
+		// this.state = {
+		// 	user: {
+    //     username: this.props.username
+    //   }
+		// }
+		// this.loadUserData = this.loadUserData.bind(this)
 		this.logoutHandler = this.logoutHandler.bind(this)
 	}
-
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
+  }
 	componentDidMount() {
-		this.loadUserData()
+		// this.loadUserData()
 	}
 
 	logoutHandler() {
-    this.setState({
-      user: {
-        username: ''
-      }
-    })
 		logout()
 	}
 
@@ -67,24 +63,24 @@ export default class Header extends Component {
                 <Link to="/features">Features</Link>
               </li>
               {
-                this.state.user.username &&
+                this.props.user &&
                 <li>
                   <Link to="/app/users">Users</Link>
                 </li>
               }
               {
-                this.state.user.username &&
+                this.props.user &&
                 <li>
                   <Link to="/app/reset-password">Reset Password</Link>
                 </li>
               }
             </ul>
             {
-              this.state.user.username ? (
+              this.props.user ? (
                 <ul className="nav navbar-nav navbar-right">
                   <li>
                     <Link to="/profile">
-                      Hello {this.state.user.username}
+                      Hello {this.props.user.username}
                     </Link>
                   </li>
                   <li>
@@ -106,3 +102,12 @@ export default class Header extends Component {
   }
 }
 
+Header.propTypes = {
+  user: PropTypes.object
+}
+
+const mapStateToProps = state => ({
+  user: state.user,
+})
+
+export default connect(mapStateToProps)(Header)
