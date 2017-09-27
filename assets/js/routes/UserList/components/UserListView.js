@@ -46,7 +46,7 @@ export default class UserListView extends Component {
 
 		return(
 			<div>
-				<h1>User List Table</h1>
+				<h1>Super User Table</h1>
 				{this.state.users ?
 					<BootstrapTable data={ this.state.users }>
 						<TableHeaderColumn dataField='id' isKey dataFormat={indexN}>User ID</TableHeaderColumn>
