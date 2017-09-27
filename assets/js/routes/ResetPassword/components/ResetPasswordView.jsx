@@ -9,6 +9,7 @@ class ResetPasswordView extends Component {
     this.state = {
       password: '',
       confirmPassword: '',
+      resetSuccess: false
     }
 
     this.handleChangePassword = this.handleChangePassword.bind(this)
@@ -52,7 +53,7 @@ class ResetPasswordView extends Component {
   render() {
     const isPasswordValid = this.validatePassword(this.state.password)
     const isConfirmPasswordValid = this.validateConfirmPassword(this.state.confirmPassword)
-    const isSubmitDisabled = isPasswordValid !== true || isConfirmPasswordValid !== true
+    const isSubmitDisabled = isPasswordValid !== true || isConfirmPasswordValid !== true || this.state.resetSuccess == true
 
     return (
       <div className="row">

@@ -22,6 +22,9 @@ class ResetPasswordContainer extends Component {
   handlSubmit(password) {
     changePassword(this.state.user.username, password, (res) => {
 			if(res == "password set") {
+				this.refs.passwordView.setState({
+					resetSuccess: true
+				})
 				this.props.dispatch(showMessage("Password changed Successfully."))
 				setTimeout(()=> {
 					this.props.router.push('/app/')
@@ -51,7 +54,7 @@ class ResetPasswordContainer extends Component {
 
   render() {
     return (
-      <ResetPasswordView
+      <ResetPasswordView ref="passwordView"
         onSubmit={this.handlSubmit}
       />
     )
