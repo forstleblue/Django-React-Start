@@ -6,6 +6,7 @@ import Message from './Message'
 class MessageBox extends Component {
 	constructor(props) {
 		super(props)
+		this.handleDismiss = this.handleDismiss.bind(this)
 	}
 
 	handleDismiss(messageId) {
