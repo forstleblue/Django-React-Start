@@ -25,17 +25,17 @@ const getToken = (username, pass, cb) => {
 
 export const login = (username, pass, cb) => {
 	if (localStorage.token) {
-		if (cb) cb(true)
+		if (cb) cb(localStorage.token)
 		return
 	}
 	getToken(username, pass, (res) => {
 		if (res.authenticated) {
 			localStorage.token = res.token
 			if (cb) {
-				cb(true);
+				cb(localStorage.token);
 			}
 		} else {
-			if (cb) cb(false)
+			if (cb) cb(null)
 		}
 	})
 }

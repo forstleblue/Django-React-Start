@@ -12,14 +12,15 @@ class LoginContainer extends Component {
 	}
 
 	handleSubmit(username, password) {
-		login(username, password, (loggedIn) => {
-			if (loggedIn) {
+		login(username, password, (token) => {
+			if (token) {
 				this.props.dispatch({
 					type: types.LOGIN_USER,
 					user: {
 						username,
 					},
 				})
+				localStorage.setItem(token, username)
 				this.props.router.push('/app/')
 			} else {
 				this.props.dispatch(showMessage('Invalid username and password.'))
