@@ -2,21 +2,53 @@ import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import IndexLink from 'react-router/lib/IndexLink'
 import Link from 'react-router/lib/Link'
-import {logout} from '../../auth'
-import  {logoutUser} from '../../actions/user'
+import { logout } from '../../auth'
+import { logoutUser } from '../../actions/user'
+import * as types from '../../actions/types'
 class Header extends Component {
 
   constructor(props) {
-		super(props)
-		this.logoutHandler = this.logoutHandler.bind(this)
-	}
+    super(props)
+    this.logoutHandler = this.logoutHandler.bind(this)
+    this.loadUserData = this.loadUserData.bind(this)
+  }
 
-	logoutHandler() {
-		logout()
+  logoutHandler() {
+    logout()
     this.props.dispatch(logoutUser())
-	}
+  }
 
-  render () {
+  componentDidMount() {
+    this.loadUserData()
+  }
+
+  loadUserData() {
+    console.log("refresh working")
+    $.ajax({
+      method: 'GET',
+      url: '/api/users/i/',
+      datatype: 'json',
+      headers: {
+        'Authorization': 'Token ' + localStorage.token
+      },
+      success: function (res) {
+        this.props.dispatch({
+					type: types.LOGIN_USER,
+					user: {
+						username: res.username
+					},
+				})
+      }.bind(this),
+      error: (xhr, status, err) => {
+        console.log("Fail to get user data")
+        this.props.dispatch({
+					type: types.LOGOUT_USER
+				})
+      }
+    })
+  }
+
+  render() {
     return (
       <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -56,16 +88,16 @@ class Header extends Component {
                     </Link>
                   </li>
                   <li>
-                    <Link to ="/app/login" onClick={this.logoutHandler}>Logout</Link>
+                    <Link to="/app/login" onClick={this.logoutHandler}>Logout</Link>
                   </li>
                 </ul>
               ) : (
-                <ul className="nav navbar-nav navbar-right">
-                  <li>
-                    <Link to="/app/login">Login</Link>
-                  </li>
-                </ul>
-              )
+                  <ul className="nav navbar-nav navbar-right">
+                    <li>
+                      <Link to="/app/login">Login</Link>
+                    </li>
+                  </ul>
+                )
             }
           </div>
         </div>
