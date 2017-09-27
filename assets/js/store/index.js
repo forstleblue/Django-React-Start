@@ -5,7 +5,7 @@ import reduxThunk from "redux-thunk";
 import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly';
 import {createLogger} from 'redux-logger';
 
-export default function configureStore (initial_state = {}, history) {
+export default (initial_state = {}) => {
 	// let middleware = applyMiddleware(routerMiddleware(history));
 	// console.log("firstMiddleware: " + middleware)
 	// if (process.env.NODE_ENV !== 'production') {
@@ -21,13 +21,10 @@ export default function configureStore (initial_state = {}, history) {
 	const store = createStore(
 		reducers,
 		initial_state,
-		composeWithDevTools(
-			applyMiddleware(reduxThunk, logger)
-		)
+		applyMiddleware(reduxThunk, logger)
 	)
 
 	if (module.hot) {
-		console.log("module hot reload: " + module.hot)
 		module.hot.accept('../reducers', () => {
 		const nextReducer = require('../reducers') // eslint-disable-line global-require
 		store.replaceReducer(nextReducer)

@@ -3,49 +3,17 @@ import { connect } from 'react-redux'
 import IndexLink from 'react-router/lib/IndexLink'
 import Link from 'react-router/lib/Link'
 import {logout} from '../../auth'
-
-
-export default class Header extends Component {
+import  {logoutUser} from '../../actions/user'
+class Header extends Component {
 
   constructor(props) {
 		super(props)
-		this.state = {
-			user: {
-        username: this.props.username
-      }
-		}
-		this.loadUserData = this.loadUserData.bind(this)
 		this.logoutHandler = this.logoutHandler.bind(this)
 	}
 
-	componentDidMount() {
-		this.loadUserData()
-	}
-
 	logoutHandler() {
-    this.setState({
-      user: {
-        username: ''
-      }
-    })
 		logout()
-	}
-
-	loadUserData() {
-		$.ajax({
-			method: 'GET',
-			url: '/api/users/i/',
-			datatype: 'json',
-			headers: {
-				'Authorization': 'Token ' + localStorage.token
-			},
-			success: function (res) {
-				this.setState({ user: res })
-			}.bind(this),
-			fail: function (err) {
-				console.log("error message: " + err.message)
-			}
-		})
+    this.props.dispatch(logoutUser())
 	}
 
   render () {
@@ -67,24 +35,24 @@ export default class Header extends Component {
                 <Link to="/features">Features</Link>
               </li>
               {
-                this.state.user &&
+                this.props.user &&
                 <li>
                   <Link to="/app/users">Users</Link>
                 </li>
               }
               {
-                this.state.user &&
+                this.props.user &&
                 <li>
                   <Link to="/app/reset-password">Reset Password</Link>
                 </li>
               }
             </ul>
             {
-              this.state.user.username ? (
+              this.props.user ? (
                 <ul className="nav navbar-nav navbar-right">
                   <li>
                     <Link to="/profile">
-                      Hello {this.state.user.username}
+                      Hello {this.props.user.username}
                     </Link>
                   </li>
                   <li>
@@ -106,3 +74,13 @@ export default class Header extends Component {
   }
 }
 
+Header.propTypes = {
+  user: PropTypes.object,
+  dispatch: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+  user: state.user,
+})
+
+export default connect(mapStateToProps)(Header)
