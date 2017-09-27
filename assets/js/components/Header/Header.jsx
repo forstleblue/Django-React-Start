@@ -27,7 +27,7 @@ class Header extends Component {
               <span className="icon-bar" />
               <span className="icon-bar" />
             </button>
-            <IndexLink to="/" className="navbar-brand">Django-React Starter</IndexLink>
+            <IndexLink to="/app" className="navbar-brand">Django-React Starter</IndexLink>
           </div>
           <div className="collapse navbar-collapse" id="top-menu">
             <ul className="nav navbar-nav">

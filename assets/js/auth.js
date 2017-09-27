@@ -49,6 +49,7 @@ export const loggedIn = () => {
 }
 
 export const changePassword = (username, newpass, cb) => {
+	var result
 	$.ajax({
 		type: 'POST',
 		url: '/api/users/i/change-password/',
@@ -61,10 +62,14 @@ export const changePassword = (username, newpass, cb) => {
 			'Authorization': 'Token ' + localStorage.token
 		},
 		success: function (res) {
-			console.log("change password success")
+			console.log("Password changed successfully.")
+			result = res.status
+			cb(result)
 		},
 		error: (xhr, status, err) => {
-			console.log("change password error")
+			console.log("Change Password error")
+			result = status
+			cb(result)
 		}
 	})
 }

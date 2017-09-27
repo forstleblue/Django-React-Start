@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { changePasswordRequest } from '../../../actions/user'
 import ResetPasswordView from '../components/ResetPasswordView'
 import {changePassword} from '../../../auth'
+import { showMessage } from '../../../actions/messages'
 class ResetPasswordContainer extends Component {
 
   constructor(props) {
@@ -12,6 +13,7 @@ class ResetPasswordContainer extends Component {
 		}
 		this.loadUserData = this.loadUserData.bind(this)
     this.handlSubmit = this.handlSubmit.bind(this)
+		this.resetPasswordResult = this.resetPasswordResult.bind(this)
   }
 
   componentDidMount() {
@@ -19,8 +21,19 @@ class ResetPasswordContainer extends Component {
 	}
 
   handlSubmit(password) {
-    changePassword(this.state.user.username, password)
+    changePassword(this.state.user.username, password, this.resetPasswordResult)
   }
+
+	resetPasswordResult(result) {
+		if(result == "password set") {
+			this.props.dispatch(showMessage("Password changed Successfully."))
+			setTimeout(()=> {
+				this.props.router.push('/app/')
+			}, 3000)
+		} else {
+			this.props.dispatch(showMessage("Password Reset Error."))
+		}
+	}
 
   loadUserData() {
 		$.ajax({
@@ -50,6 +63,7 @@ class ResetPasswordContainer extends Component {
 
 ResetPasswordContainer.propTypes = {
     changePasswordRequest: PropTypes.func.isRequired,
+		dispatch: PropTypes.func.isRequired
 }
 
-export default connect(undefined, { changePasswordRequest })(ResetPasswordContainer)
+export default connect()(ResetPasswordContainer)

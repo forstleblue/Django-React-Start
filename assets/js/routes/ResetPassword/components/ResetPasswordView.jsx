@@ -66,7 +66,7 @@ class ResetPasswordView extends Component {
                 <FormGroup
                   type="password"
                   id="password"
-                  label="Password"
+                  label="New Password"
                   validate={this.validatePassword}
                   onChange={this.handleChangePassword}
                 />
