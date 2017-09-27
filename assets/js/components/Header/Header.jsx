@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import IndexLink from 'react-router/lib/IndexLink'
 import Link from 'react-router/lib/Link'
 import {logout} from '../../auth'
-
+import  {logoutUser} from '../../actions/user'
 class Header extends Component {
 
   constructor(props) {
@@ -13,6 +13,7 @@ class Header extends Component {
 
 	logoutHandler() {
 		logout()
+    this.props.dispatch(logoutUser())
 	}
 
   render () {
@@ -74,7 +75,8 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object,
+  dispatch: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
