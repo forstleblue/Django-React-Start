@@ -13,7 +13,6 @@ class ResetPasswordContainer extends Component {
 		}
 		this.loadUserData = this.loadUserData.bind(this)
     this.handlSubmit = this.handlSubmit.bind(this)
-		this.resetPasswordResult = this.resetPasswordResult.bind(this)
   }
 
   componentDidMount() {
@@ -21,19 +20,17 @@ class ResetPasswordContainer extends Component {
 	}
 
   handlSubmit(password) {
-    changePassword(this.state.user.username, password, this.resetPasswordResult)
+    changePassword(this.state.user.username, password, (res) => {
+			if(res == "password set") {
+				this.props.dispatch(showMessage("Password changed Successfully."))
+				setTimeout(()=> {
+					this.props.router.push('/app/')
+				}, 3000)
+			} else {
+				this.props.dispatch(showMessage("Password Reset Error."))
+			}
+		})
   }
-
-	resetPasswordResult(result) {
-		if(result == "password set") {
-			this.props.dispatch(showMessage("Password changed Successfully."))
-			setTimeout(()=> {
-				this.props.router.push('/app/')
-			}, 3000)
-		} else {
-			this.props.dispatch(showMessage("Password Reset Error."))
-		}
-	}
 
   loadUserData() {
 		$.ajax({
