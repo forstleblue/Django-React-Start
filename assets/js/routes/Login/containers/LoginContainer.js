@@ -1,20 +1,28 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import LoginView from '../components/LoginView'
 import {login} from '../../../auth'
+import { showMessage } from '../../../actions/messages'
+import * as types from '../../../actions/types'
+
 class LoginContainer extends Component {
 	constructor(props) {
 		super(props)
-
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
 	handleSubmit(username, password) {
 		login(username, password, (loggedIn) => {
 			if (loggedIn) {
-				this.props.setUser(username)
+				this.props.dispatch({
+					type: types.LOGIN_USER,
+					user: {
+						username,
+					},
+				})
 				this.props.router.push('/app/')
 			} else {
-				this.setState({ login_error: true })
+				this.props.dispatch(showMessage('Invalid username and password.'))
 			}
 		})
 	}
@@ -27,4 +35,8 @@ class LoginContainer extends Component {
 	}
 }
 
-export default LoginContainer
+LoginContainer.propTypes = {
+	dispatch: PropTypes.func.isRequired,
+}
+
+export default connect()(LoginContainer)
