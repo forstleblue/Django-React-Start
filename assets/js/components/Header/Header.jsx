@@ -8,40 +8,11 @@ class Header extends Component {
 
   constructor(props) {
 		super(props)
-		// this.state = {
-		// 	user: {
-    //     username: this.props.username
-    //   }
-		// }
-		// this.loadUserData = this.loadUserData.bind(this)
 		this.logoutHandler = this.logoutHandler.bind(this)
-	}
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
-  }
-	componentDidMount() {
-		// this.loadUserData()
 	}
 
 	logoutHandler() {
 		logout()
-	}
-
-	loadUserData() {
-		$.ajax({
-			method: 'GET',
-			url: '/api/users/i/',
-			datatype: 'json',
-			headers: {
-				'Authorization': 'Token ' + localStorage.token
-			},
-			success: function (res) {
-				this.setState({ user: res })
-			}.bind(this),
-			fail: function (err) {
-				console.log("error message: " + err.message)
-			}
-		})
 	}
 
   render () {
