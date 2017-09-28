@@ -7,7 +7,7 @@ import createStore from './store'
 import AppContainer from './containers/AppContainer';
 import routes from './routes'
 import * as types from './actions/types'
-
+import { logout } from './auth.js'
 const initialState = {};
 const store = createStore(initialState);
 const token = localStorage.getItem('token')
@@ -19,13 +19,15 @@ if(token) {
 	localStorage.setItem('lastLogin', currentTime.getTime())
 	//remove user token if there was not access during 60 minutes
 	console.log("intervalTime: " + intervalTime)
-	if(intervalTime < 1 ) {
+	if(intervalTime < 60 ) {
 		store.dispatch({
 			type: types.LOGIN_USER,
 			user: {
 				username,
 			},
 		})
+	} else {
+		logout()
 	}
 }
 ReactDOM.render(
