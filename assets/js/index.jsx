@@ -12,13 +12,21 @@ const initialState = {};
 const store = createStore(initialState);
 const token = localStorage.getItem('token')
 if(token) {
+	const lastAccessTime = localStorage.getItem('lastLogin')
+	const currentTime = new Date()
+	const intervalTime = (currentTime.getTime() - lastAccessTime)/1000/60
 	const username = localStorage.getItem(token)
-	store.dispatch({
-		type: types.LOGIN_USER,
-		user: {
-			username,
-		},
-	})
+	localStorage.setItem('lastLogin', currentTime.getTime())
+	//remove user token if there was not access during 60 minutes
+	console.log("intervalTime: " + intervalTime)
+	if(intervalTime < 1 ) {
+		store.dispatch({
+			type: types.LOGIN_USER,
+			user: {
+				username,
+			},
+		})
+	}
 }
 ReactDOM.render(
 	<AppContainer store={store}>

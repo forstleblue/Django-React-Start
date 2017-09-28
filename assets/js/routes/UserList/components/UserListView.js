@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 export default class UserListView extends Component {
 	constructor(props) {
 		super(props)
