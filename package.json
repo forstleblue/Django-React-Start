@@ -5,6 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test:unit": "npm run mocha './assets/js/test/unit/**/*.spec.js'",
+    "mocha": "NODE_ENV=development mocha --opts ./assets/js/test/config/mocha.opts",
     "build": "webpack --config webpack.config.js",
     "watch": "node server.js",
     "start": "webpack-dev-server --progress --inline --hot --host 0.0.0.0"
@@ -15,7 +17,7 @@
     "webpack",
     "authentication"
   ],
-  "author": "Jonathan Cox",
+  "author": "bluearconetech",
   "license": "GPL-3.0",
   "dependencies": {
     "babel": "^6.5.2",
@@ -29,15 +31,11 @@
     "jquery": "^2.2.2",
     "prop-types": "^15.5.7",
     "react": "^15.6.1",
-    "react-addons-css-transition-group": "^15.6.0",
-    "react-addons-transition-group": "^15.6.0",
-    "react-bootstrap-table": "^4.0.5",
     "react-dom": "^15.6.1",
     "react-hot-loader": "^3.0.0-beta.2",
     "react-redux": "^5.0.2",
     "react-router": "^3.0.2",
     "react-router-redux": "^3.x",
-    "reactstrap": "^4.8.0",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
@@ -50,6 +48,11 @@
   },
   "devDependencies": {
     "babel-polyfill": "^6.22.0",
-    "file-loader": "^0.11.2"
+    "enzyme": "^2.9.1",
+    "enzyme-adapter-react-16": "^1.0.0",
+    "expect": "^21.2.1",
+    "file-loader": "^0.11.2",
+    "mocha": "^3.2.0",
+    "react-test-renderer": "^16.0.0"
   }
 }

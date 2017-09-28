@@ -1,0 +1,1 @@
+--require ./assets/js/test/config/test.config.js --timeout 10000
