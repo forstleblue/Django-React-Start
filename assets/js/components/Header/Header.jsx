@@ -33,7 +33,7 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="top-menu">
             <ul className="nav navbar-nav">
               <li>
-                <Link to="/features">Features</Link>
+                <Link to="">Features</Link>
               </li>
               {
                 this.props.user &&
@@ -52,7 +52,7 @@ class Header extends Component {
               this.props.user ? (
                 <ul className="nav navbar-nav navbar-right">
                   <li>
-                    <Link to="/profile">
+                    <Link to="">
                       Hello {this.props.user.username}
                     </Link>
                   </li>
