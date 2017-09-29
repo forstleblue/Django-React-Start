@@ -4,13 +4,12 @@ import IndexRoute from 'react-router/lib/IndexRoute'
 import Login from './Login'
 import React from 'react'
 import browserHistory from 'react-router/lib/browserHistory'
-import { loggedIn } from '../auth.js'
 import ResetPassword from './ResetPassword'
 import Home from './Home'
 import MainLayout from '../components/MainLayout'
 import UserList from './UserList'
 function requireAuth(nextState, replace) {
-	if (!loggedIn()) {
+	if (!localStorage.token) {
 		replace({
 			pathname: '/app/login',
 			state: { nextPathname: '/app' }

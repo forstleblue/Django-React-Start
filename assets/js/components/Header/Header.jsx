@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import IndexLink from 'react-router/lib/IndexLink'
 import Link from 'react-router/lib/Link'
-import { logout } from '../../auth'
 import { logoutUser } from '../../actions/user'
 import * as types from '../../actions/types'
 class Header extends Component {
@@ -14,7 +13,6 @@ class Header extends Component {
   }
 
   logoutHandler() {
-    logout()
     this.props.dispatch(logoutUser())
   }
 
@@ -33,9 +31,12 @@ class Header extends Component {
           </div>
           <div className="collapse navbar-collapse" id="top-menu">
             <ul className="nav navbar-nav">
-              <li>
-                <Link to="">Features</Link>
-              </li>
+              {
+                this.props.user &&
+                <li>
+                  <Link to="">Features</Link>
+                </li>
+              }
               {
                 this.props.user &&
                 <li>

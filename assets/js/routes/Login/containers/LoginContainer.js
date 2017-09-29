@@ -5,7 +5,7 @@ import LoginView from '../components/LoginView'
 import {login} from '../../../auth'
 import { showMessage } from '../../../actions/messages'
 import * as types from '../../../actions/types'
-
+import { loginUser } from '../../../actions/user'
 class LoginContainer extends Component {
 	constructor(props) {
 		super(props)
@@ -15,13 +15,7 @@ class LoginContainer extends Component {
 	handleSubmit(username, password) {
 		login(username, password, (token) => {
 			if (token) {
-				this.props.dispatch({
-					type: types.LOGIN_USER,
-					user: {
-						username,
-					},
-				})
-				localStorage.setItem(token, username)
+				this.props.dispatch(loginUser(token, {username: username}))
 				this.props.router.push('/app')
 			} else {
 				this.props.dispatch(showMessage('Invalid username and password.'))
