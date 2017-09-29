@@ -63,7 +63,6 @@ class ResetPasswordContainer extends Component {
 }
 
 ResetPasswordContainer.propTypes = {
-    changePasswordRequest: PropTypes.func.isRequired,
 		dispatch: PropTypes.func.isRequired
 }
 
