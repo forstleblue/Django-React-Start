@@ -21,7 +21,7 @@ class LoginContainer extends Component {
 					},
 				})
 				localStorage.setItem(token, username)
-				this.props.router.push('/app/')
+				this.props.router.push('/app')
 			} else {
 				this.props.dispatch(showMessage('Invalid username and password.'))
 			}

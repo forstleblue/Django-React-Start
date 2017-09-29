@@ -27,7 +27,7 @@ class ResetPasswordContainer extends Component {
 				})
 				this.props.dispatch(showMessage("Password changed Successfully."))
 				setTimeout(()=> {
-					this.props.router.push('/app/')
+					this.props.router.push('/app')
 				}, 3000)
 			} else {
 				this.props.dispatch(showMessage("Password Reset Error."))

@@ -18,7 +18,7 @@ from django.views.generic import TemplateView
 from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
-    url(r'^app/', csrf_exempt(TemplateView.as_view(template_name='index.html'))),
+    url(r'^app', csrf_exempt(TemplateView.as_view(template_name='index.html'))),
     url(r'^api/', include('api.urls'))
 ]
 
