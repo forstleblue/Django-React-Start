@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react'
-
+import React from 'react'
+import PropTypes from 'prop-types'
 const Message = ({ message, onDismiss }) => (
   <div className="alert alert-info" role="alert">
     <button type="button" className="close" aria-label="Close" onClick={() => onDismiss(message.messageId)}>
