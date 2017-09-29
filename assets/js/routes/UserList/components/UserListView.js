@@ -47,7 +47,7 @@ export default class UserListView extends Component {
 					<table className="table">
 						<thead>
 							<tr>
-								<th>User ID</th>
+								<th>#</th>
 								<th>User Name</th>
 							</tr>
 						</thead>
@@ -59,7 +59,7 @@ export default class UserListView extends Component {
 					<table className="table">
 						<thead>
 							<tr>
-								<th>User ID</th>
+								<th>#</th>
 								<th>User Name</th>
 							</tr>
 						</thead>

@@ -34,12 +34,6 @@ class Header extends Component {
               {
                 this.props.user &&
                 <li>
-                  <Link to="">Features</Link>
-                </li>
-              }
-              {
-                this.props.user &&
-                <li>
                   <Link to="/app/users">Users</Link>
                 </li>
               }
