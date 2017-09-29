@@ -12,7 +12,7 @@ virtualenv venv
 cd Scripts
 activate
 
-Mac: 
+Mac:
 virtualenv venv
 source bin/activate
 ```
@@ -28,7 +28,9 @@ Windows: virtualenv venv , activate your virtual environment.
 4. `npm run watch`
 5. `python manage.py runserver`
 
-### Create user 
+### Create user
 ```
 python manage.py createsuperuser
 ```
+
+![Alt text](assets/js/public/homepage.png?raw=true "Homepage")
