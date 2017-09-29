@@ -32,5 +32,6 @@ Windows: virtualenv venv , activate your virtual environment.
 ```
 python manage.py createsuperuser
 ```
+# Homepage
 
 ![Alt text](assets/js/public/homepage.png?raw=true "Homepage")
