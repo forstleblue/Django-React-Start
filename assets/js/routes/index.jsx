@@ -8,6 +8,7 @@ import ResetPassword from './ResetPassword'
 import Home from './Home'
 import MainLayout from '../components/MainLayout'
 import UserList from './UserList'
+import NotFound from './NotFound'
 function requireAuth(nextState, replace) {
 	if (!localStorage.token) {
 		replace({
@@ -24,6 +25,7 @@ const routes =
 			<Route path='login' component={Login} />
 			<Route path='users' component={UserList} onEnter={requireAuth} />
 			<Route path='reset-password' component={ResetPassword} onEnter={requireAuth} />
+			<Route path="*" component={NotFound}/>
 		</Route>
 	</Router>
 
